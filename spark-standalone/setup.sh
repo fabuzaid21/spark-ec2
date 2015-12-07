@@ -1,14 +1,14 @@
 #!/bin/bash
 
-BIN_FOLDER="/root/spark/sbin"
+BIN_FOLDER="/mnt/yggdrasil/sbin"
 
 if [[ "0.7.3 0.8.0 0.8.1" =~ $SPARK_VERSION ]]; then
-  BIN_FOLDER="/root/spark/bin"
+  BIN_FOLDER="/mnt/yggdrasil/bin"
 fi
 
 # Copy the slaves to spark conf
-cp /root/spark-ec2/slaves /root/spark/conf/
-/root/spark-ec2/copy-dir /root/spark/conf
+cp /root/spark-ec2/slaves /mnt/yggdrasil/conf/
+/root/spark-ec2/copy-dir /mnt/yggdrasil/conf
 
 # Set cluster-url to standalone master
 echo "spark://""`cat /root/spark-ec2/masters`"":7077" > /root/spark-ec2/cluster-url
