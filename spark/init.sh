@@ -1,8 +1,8 @@
 #!/bin/bash
 
-pushd /root > /dev/null
+pushd /mnt > /dev/null
 
-if [ -d "spark" ]; then
+if [ -d "yggdrasil" ]; then
   echo "Spark seems to be installed. Exiting."
   return
 fi
@@ -10,8 +10,8 @@ fi
 # Github tag:
 if [[ "$SPARK_VERSION" == *\|* ]]
 then
-  mkdir spark
-  pushd spark > /dev/null
+  mkdir yggdrasil
+  pushd yggdrasil > /dev/null
   git init
   repo=`python -c "print '$SPARK_VERSION'.split('|')[0]"` 
   git_hash=`python -c "print '$SPARK_VERSION'.split('|')[1]"`
